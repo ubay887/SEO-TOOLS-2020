@@ -1,0 +1,46 @@
+// main css
+body {
+    background-color: #302a26;
+    color: azure;
+}
+
+header, footer {
+    background-color: #251d18;
+    padding: 5px;
+    h1 {
+        text-align: center;
+        color: blanchedalmond;
+    }   
+    
+}
+
+header {
+    margin-bottom: 2em;
+}
+.label {
+    color: red;
+}
+
+.sec {
+    margin: auto;
+}
+
+main {
+    div.select {
+        margin: 5em auto;
+        text-align: center;
+        width: 40vw;
+    }
+ 
+}
+
+.hide {
+    display: none;
+}
+
+p {
+    margin-bottom: 0;
+}
+span {
+    color: rgb(221, 76, 76);
+}

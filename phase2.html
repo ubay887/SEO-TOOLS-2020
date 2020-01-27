@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meta Tags Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+        <!-- <a class="btn btn-warning m-2" href="index.html">Back to home</a> -->
+    <h1>SEO TOOLS</h1>
+</header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <form >
+                        <h6>Single Item</h6><small class="text-muted">(one keyword per line)</small>
+                        <textarea class="form-control" id="input" rows="6"></textarea>
+                        <!-- <textarea class="form-control" id="input" rows="6" placeholder="exclude learn more here!!&#10;one page per line eq:&#10;Home&#10;About&#10;etc.."></textarea> -->
+                    </br>
+                        <h6>Multiple Item</h6><small class="text-muted">(one keyword per line)</small>
+                        <textarea class="form-control" id="input2" rows="6"></textarea><br />
+
+                     
+                        <button type="button" class="btn btn-success mt-3" onclick="gen()" id="btnrmv01">GENERATE</button> <button type="button"  class="btn btn-danger ml-3 mt-3" onclick="clearItem()">CLEAR RESULT</button>
+                     </form>
+                     <button type="button"  class="btn btn-warning mt-3"  onclick="window.location.reload()">CLEAR ALL</button>
+                </div>
+                <div class="col-8">
+                    <h6>Pages</h6>
+                    <span style="height: 100%; word-wrap: break-word;" id="output" class="form-control"></span><br>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="container mt-3">
+                <div class="row">
+                    <div class="col-8 offset-4">
+                        <h6>Learn More</h6>
+                        <span style="height: 100%; word-wrap: break-word;" id="output2" class="form-control" ></span><br>
+                    </div>
+                </div>
+        </div>
+        <br>
+        <!-- case converter -->
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col">
+                    <form >
+                        <h6>Enter Phrases Here</h6>
+                        <textarea class="form-control" id="key" rows="3"></textarea>
+                        <br />
+                        <select name="optn" id="optn" >
+                            <option value="default">Case Select</option>
+                            <option value="lwrCase">To Lower Case</option>
+                            <option value="uprCase">To Upper Case</option>
+                            <option value="tleCase">To Title Case</option>
+                        </select>
+                        <br/>
+                        <button type="button"  class="btn btn-success mt-3" onclick="cnvrt()">CONVERT</button><button type="button"  class="btn btn-danger ml-3 mt-3" onclick="clearItem2()" id="btnrmv02">CLEAR ITEM</button>
+                    </form>
+                </div>
+                <div class="col-8">
+                    <h6>Result</h6>
+                    <span style="height: 100%; word-wrap: break-word;" id="outputKey" class="form-control"></span>
+                    <br>
+                   
+                </div>
+               
+            </div>
+        </div>
+        
+    </main>
+    
+
+    <hr class="mt-5">
+<footer class=" mt-3">
+    <h1>footer</h1>
+</footer>
+
+
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
