@@ -93,8 +93,45 @@
 
 // ============================================
 // Phase 2 Tools
+function trim () {
+    let keyinput = document.querySelector('#triminput');
+    let keyArr = keyinput.value.replace(/\r\n/g,"\n").split("\n");
+
+    keyArr.forEach((item) => {
+                let items = item.split(" ");
+                function checkValue(items) {
+                    return items !== "keyword";
+                    
+                }//remove keyword phrase
+
+                let elem = items.filter(checkValue)
+                let arr = [elem.join(" ")]
+
+                //remove number
+                for (let i = 0; i < arr.length; i++) {
+                    let value = arr[i].split("");
+                    do {
+                        value.splice(i, 1); 
+                    } while (value[i] >= 0);
+
+                        dta = value.join("")
+                        
+                }//remove number
+
+                let keyItem = [dta]
+                keyItem.forEach((item) => {
+                    item = item.toLowerCase().split(" ");
+                    for (let i = 0; i < item.length; i++){
+                        item[i] =item[i][0].toUpperCase() + item[i].slice(1);
+                    }//make sentence case
+                    let trimedkey = item.join(" ")
+                    console.log(trimedkey);
+                    
+                });
+            });
+}//trim keyword and numbers
+
 function gen () {
-//phase 01
 //city input
 let ph1cty = document.querySelector('#ph1cty');
 let ctyArr = ph1cty.value.replace(/\r\n/g,"\n").split("\n");
@@ -144,28 +181,31 @@ let wordArr = ph1kws.value.replace(/\r\n/g,"\n").split("\n");
 //let getTag = document.querySelector('#seoValue');
 let getTag = document.querySelector('#output');
 let newTag = document.createElement('div');
+let filter = "keyword"
 
-if (ph1kws.value != '') {
+if (ph1kws != '') {
     wordArr.forEach((item) => {
         let items = item.split(" ");
         function checkValue(items) {
-            return items !== "keyword";
-            
-          }//remove keyword phrase
+            return items !==  "keyword"
+          }//remove keyword
 
           let elem = items.filter(checkValue)
-          let arr = [elem.join(" ")]
-          
+          let arr = [elem.join("")]  
         //remove number
+      
             for (let i = 0; i < arr.length; i++) {
                 let value = arr[i].split("");
+                //console.log(value);
                 do {
                     value.splice(i, 1); 
-                } while (value[i] >= 0);
-
+                }while (value[i] >= 0);
                     dta0 = value.join("")
-                    console.log(dta0);  
-            }//remove number
+                    console.log(dta0);
+                    
+                    
+            }
+
         let cleanitems = [dta0]
         cleanitems.forEach((item, index) => {
             let word = item.toLowerCase().split(" ");
@@ -197,7 +237,7 @@ if (ph1kws.value != '') {
     });
     getTag.appendChild(newTag)
     newTag.setAttribute('class', 'pages')
-}//end of if condition  of phase 01
+}
 
 
 // Single Item
@@ -207,29 +247,7 @@ if (ph1kws.value != '') {
     let  newElement = document.createElement("div");
  
     if (data != '') {
-        data.forEach((item) => {
-            let items = item.split(" ");
-            function checkValue(items) {
-                return items !== "keyword";
-                
-              }//remove keyword phrase
-
-              let elem = items.filter(checkValue)
-              let arr = [elem.join(" ")]
-
-              //remove number
-              for (let i = 0; i < arr.length; i++) {
-                  let value = arr[i].split("");
-                  do {
-                    value.splice(i, 1); 
-                  } while (value[i] >= 0);
-
-                    dta = value.join("")
-                    
-              }//remove number
-
-              let keyItem = [dta]
-              keyItem.forEach((item) => {
+            data.forEach((item) => {
                 item = item.toLowerCase().split(" ");
                 for (let i = 0; i < item.length; i++){
                     item[i] =item[i][0].toUpperCase() + item[i].slice(1);
@@ -239,8 +257,6 @@ if (ph1kws.value != '') {
                 output.appendChild(newElement)
                 newElement.setAttribute('class', 'pages')  
             });
-              
-         });
 
     }
     let child = newElement.childNodes
@@ -371,6 +387,10 @@ function clearItem () {
         toRemov.parentNode.removeChild(toRemov);
 }
 function clearItem2 () {
+    let toRemov = document.querySelector('.phrse')
+    toRemov.parentNode.removeChild(toRemov);
+}
+function clearItem3 () {
     let toRemov = document.querySelector('.phrse')
     toRemov.parentNode.removeChild(toRemov);
 }
