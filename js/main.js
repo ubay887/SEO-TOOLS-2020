@@ -181,40 +181,15 @@ let wordArr = ph1kws.value.replace(/\r\n/g,"\n").split("\n");
 //let getTag = document.querySelector('#seoValue');
 let getTag = document.querySelector('#output');
 let newTag = document.createElement('div');
-let filter = "keyword"
 
-if (ph1kws != '') {
-    wordArr.forEach((item) => {
-        let items = item.split(" ");
-        function checkValue(items) {
-            return items !==  "keyword"
-          }//remove keyword
-
-          let elem = items.filter(checkValue)
-          let arr = [elem.join("")]  
-        //remove number
-      
-            for (let i = 0; i < arr.length; i++) {
-                let value = arr[i].split("");
-                //console.log(value);
-                do {
-                    value.splice(i, 1); 
-                }while (value[i] >= 0);
-                    dta0 = value.join("")
-                    console.log(dta0);
-                    
-                    
-            }
-
-        let cleanitems = [dta0]
-        cleanitems.forEach((item, index) => {
+    if (ph1kws.value != '') {
+        wordArr.forEach((item, index) => {
             let word = item.toLowerCase().split(" ");
             for (let i = 0; i < word.length; i++) {
             word[i] = word[i][0].toUpperCase() + word[i].slice(1);  
             }
             let keyword = word.join(" ")
             let keylink = keyword.toLowerCase().trim().split(/\s+/).join('-')
-    
             newTag.appendChild(document.createElement("span")).append(`keyword ${index + 1}`);
             newTag.appendChild(document.createElement("p")).append(`${keyword} ${info}`) ;
             newTag.appendChild(document.createElement("p")).append(`${keyword} In ${city}, ${state}.`);
@@ -223,21 +198,18 @@ if (ph1kws != '') {
             newTag.appendChild(document.createElement("br"))
             
         });
-
-    });
-
-    
-    // select when clicked
-    let child = newTag.childNodes
-    child.forEach(function (item, index) {
-        item= item.setAttributes({
-            "id": "pr" + `${index}`,
-            "onClick": "selectAll(this.id)"
+        
+        // select when clicked
+        let child = newTag.childNodes
+        child.forEach(function (item, index) {
+            item= item.setAttributes({
+                "id": "pr" + `${index}`,
+                "onClick": "selectAll(this.id)"
+            });
         });
-    });
-    getTag.appendChild(newTag)
-    newTag.setAttribute('class', 'pages')
-}
+        getTag.appendChild(newTag)
+        newTag.setAttribute('class', 'pages')
+    }//end of if condition  
 
 
 // Single Item
