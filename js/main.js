@@ -373,6 +373,10 @@ function clearItem3 () {
     let toRemov = document.querySelector('.phrse')
     toRemov.parentNode.removeChild(toRemov);
 }
+function clearItem4 () {
+    let toRemov = document.querySelector('.kytrm')
+    toRemov.parentNode.removeChild(toRemov);
+}
    //=====================================
      // select all text on click
         function selectAll(id){
