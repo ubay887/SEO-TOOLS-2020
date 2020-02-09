@@ -135,7 +135,6 @@ function trim () {
                     
                 });
 
-
             });
 
 }//trim keyword and numbers
@@ -219,7 +218,6 @@ let newTag = document.createElement('div');
         getTag.appendChild(newTag)
         newTag.setAttribute('class', 'pages')
     }//end of if condition  
-
 
 // Single Item
     let  input = document.querySelector('#input');
@@ -309,13 +307,13 @@ function cnvrt () {
     let keyArr = key.value.replace(/\r\n/g,"\n").split("\n");
     // console.log(keyArr);
     let outputKey = document.querySelector('#outputKey');
-    let = newElem = document.createElement("div");
+    let = newElem = document.createElement("ul");
     let caseSelect = document.querySelector('#optn').value
     
     if (caseSelect == "lwrCase") {
         keyArr.forEach((str) => {
             str= str.toLowerCase();
-            newElem.appendChild(document.createElement("p")).append(`${str} `);
+            newElem.appendChild(document.createElement("li")).append(`${str} `);
             outputKey.appendChild(newElem);
             newElem.setAttribute('class', 'phrse')  
         });
@@ -329,7 +327,7 @@ function cnvrt () {
     } else if (caseSelect == "uprCase") {
         keyArr.forEach((str) => {
             str= str.toUpperCase();
-            newElem.appendChild(document.createElement("p")).append(`${str} `);
+            newElem.appendChild(document.createElement("li")).append(`${str} `);
             outputKey.appendChild(newElem);
             newElem.setAttribute('class', 'phrse')
         });
@@ -346,7 +344,7 @@ function cnvrt () {
                 for (let i = 0; i < words.length; i++) {
                     words[i] = words[i][0].toUpperCase() + words[i].slice(1);
                 } 
-                newElem.appendChild(document.createElement("p")).append(words.join(" "));
+                newElem.appendChild(document.createElement("li")).append(words.join(" "));
                 outputKey.appendChild(newElem);
                 newElem.setAttribute('class', 'phrse')
                 
