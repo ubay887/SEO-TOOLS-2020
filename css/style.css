@@ -29,9 +29,6 @@ main div.select {
   text-align: center;
   width: 40vw;
 }
-main div.tab-content {
-  height: 100px;
-}
 
 .hide {
   display: none;
@@ -43,6 +40,11 @@ p {
 
 span {
   color: #dd4c4c;
+}
+
+ul.kytrm {
+  list-style-type: none;
+  padding-left: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

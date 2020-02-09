@@ -96,8 +96,9 @@
 function trim () {
     let keyinput = document.querySelector('#triminput');
     let keyArr = keyinput.value.replace(/\r\n/g,"\n").split("\n");
+    //console.log(keyArr)
     let outpt = document.querySelector('#trimoutput');
-    let trimout = document.createElement('span');
+    let trimout = document.createElement('ul');
     keyArr.forEach((item) => {
                 let items = item.split(" ");
                 function checkValue(items) {
@@ -126,17 +127,16 @@ function trim () {
                         item[i] =item[i][0].toUpperCase() + item[i].slice(1);
                     }//make sentence case
                     let trimedkey = item.join(" ")
-                    console.log(trimedkey);
-                    
-                    trimout.appendChild(document.createElement("p")).append(`${trimedkey}`)
+
+                    trimout.appendChild(document.createElement("li")).append(`${trimedkey}`)
+                    //trimout.append(`${trimedkey}`)
                     outpt.appendChild(trimout)
-                    trimout.setAttribute('style', 'display: none;')
-                    //trimout.setAttribute('class', 'kytrm')
+                    trimout.setAttribute('class', 'kytrm')
                     
                 });
 
+
             });
-            let ark = []
 
 }//trim keyword and numbers
 
