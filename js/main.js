@@ -102,7 +102,7 @@ function trim () {
     keyArr.forEach((item) => {
                 let items = item.split(" ");
                 function checkValue(items) {
-                    return items !== "keyword";
+                    return items !== "Keyword";
                     
                 }//remove keyword phrase
 
