@@ -1,98 +1,3 @@
-// ===============================================
-// Phase 1 Tools
-// function genKey () {
-//     //city input
-//     let ph1cty = document.querySelector('#ph1cty');
-//     let ctyArr = ph1cty.value.replace(/\r\n/g,"\n").split("\n");
-//         ctyArr.forEach((item) => {
-//             let word = item.toLowerCase().split(" ");
-//             for (let i = 0; i < word.length; i++) {
-//             word[i] = word[i][0].toUpperCase() + word[i].slice(1);  
-//             }
-//             city = word.join(" ")
-//         });
-//     // state input
-//     let ph1ste = document.querySelector('#ph1ste');
-//     let steArr = ph1ste.value.replace(/\r\n/g,"\n").split("\n");
-//         steArr.forEach((item) => {
-//             let abbr = item.length //check state abbreviation if more than 3 character
-//             if (abbr <= 3) {
-//                 state = item.toUpperCase();
-//             } else {
-//                 let word = item.toLowerCase().split(" ");
-//                 for (let i = 0; i < word.length; i++) {
-//                     word[i] = word[i][0].toUpperCase() + word[i].slice(1);  
-//                     }
-//                     state = word.join(" ")
-//             }
-//         });
-//     // business name input
-//     let ph1bns = document.querySelector('#ph1bns');
-//     let bnsArr = ph1bns.value.replace(/\r\n/g,"\n").split("\n");
-//         bnsArr.forEach((item) => {
-//             let word = item.toLowerCase().split(" ");
-//             for (let i = 0; i < word.length; i++) {
-//             word[i] = word[i][0].toUpperCase() + word[i].slice(1);  
-//             }
-//             business = word.join(" ")
-//         });
-//     // variable concatenation
-//     let info = `| ${city} ${state} | ${business}`;
-//     //let link = `${city} ${state}`;
-//        // link = link.toLowerCase().trim().split(/\s+/).join('-')
-    
-//     // keyword input
-//     //let ph1kws = document.querySelector('#ph1kws');
-//     let ph1kws = document.querySelector('#input');
-//     let wordArr = ph1kws.value.replace(/\r\n/g,"\n").split("\n");
-        
-//     // node creation
-//     //let getTag = document.querySelector('#seoValue');
-//     let getTag = document.querySelector('#output');
-//     let newTag = document.createElement('div');
-    
-//     // argument or condition 
-//     if (ph1kws.value != '') {
-//         wordArr.forEach((item, index) => {
-//             let word = item.toLowerCase().split(" ");
-//             for (let i = 0; i < word.length; i++) {
-//             word[i] = word[i][0].toUpperCase() + word[i].slice(1);  
-//             }
-//             let keyword = word.join(" ")
-//             let keylink = keyword.toLowerCase().trim().split(/\s+/).join('-')
-//             newTag.appendChild(document.createElement("span")).append(`keyword ${index + 1}`);
-//             newTag.appendChild(document.createElement("p")).append(`${keyword} ${info}`) ;
-//             newTag.appendChild(document.createElement("p")).append(`${keyword} In ${city}, ${state}.`);
-//             newTag.appendChild(document.createElement("p")).append(`${keylink}`);
-//             //newTag.appendChild(document.createElement("p")).append(`${keylink}-${link}`);
-//             newTag.appendChild(document.createElement("br"))
-            
-//         });
-        
-//         // select when clicked
-//         let child = newTag.childNodes
-//         child.forEach(function (item, index) {
-//             item= item.setAttributes({
-//                 "id": "pr" + `${index}`,
-//                 "onClick": "selectAll(this.id)"
-//             });
-//         });
-//         getTag.appendChild(newTag)
-//         newTag.setAttribute('class', 'pages')
-//     }//end of if condition  
-// }
-//============================================
-// // character counter
-// let mxChar = 150;
-// $('#cnt_msg').html(mxChar + ' remaining');
-// $('#charcount').keyup(function() {
-//   let text_length = $('#charcount').val().length;
-//   let text_remaining = mxChar - text_length;
-//   $('#cnt_msg').html(text_remaining + ' remaining');
-// });
-
-// ============================================
-// Phase 2 Tools
 function trim () {
     let keyinput = document.querySelector('#triminput');
     let keyArr = keyinput.value.replace(/\r\n/g,"\n").split("\n");
@@ -385,43 +290,43 @@ function clearItem4 () {
     let toRemov = document.querySelector('.kytrm')
     toRemov.parentNode.removeChild(toRemov);
 }
-   //=====================================
-     // select all text on click
-        function selectAll(id){
-            let sel, range;
-            let el = document.getElementById(id); //get element id
-            if (window.getSelection && document.createRange) { //Browser compatibility
-              sel = window.getSelection();
-              if(sel.toString() == ''){ //no text selection
-                 window.setTimeout(function(){
-                    range = document.createRange(); //range object
-                    range.selectNodeContents(el); //sets Range
-                    sel.removeAllRanges(); //remove all ranges from selection
-                    sel.addRange(range);//add Range to a Selection.
-                },1);
-              }
-            }else if (document.selection) { //older ie
-                sel = document.selection.createRange();
-                if(sel.text == ''){ //no text selection
-                    range = document.body.createTextRange();//Creates TextRange object
-                    range.moveToElementText(el);//sets Range
-                    range.select(); //make selection.
-                }
+//=====================================
+// select all text on click
+function selectAll(id){
+    let sel, range;
+    let el = document.getElementById(id); //get element id
+    if (window.getSelection && document.createRange) { //Browser compatibility
+        sel = window.getSelection();
+        if(sel.toString() == ''){ //no text selection
+            window.setTimeout(function(){
+            range = document.createRange(); //range object
+            range.selectNodeContents(el); //sets Range
+            sel.removeAllRanges(); //remove all ranges from selection
+            sel.addRange(range);//add Range to a Selection.
+        },1);
+        }
+    }else if (document.selection) { //older ie
+        sel = document.selection.createRange();
+        if(sel.text == ''){ //no text selection
+            range = document.body.createTextRange();//Creates TextRange object
+            range.moveToElementText(el);//sets Range
+            range.select(); //make selection.
+        }
+    }
+}
+//==========================================
+// Element prototype
+    Element.prototype.setAttributes = function (attrs) {
+        for (var idx in attrs) {
+            if ((idx === 'styles' || idx === 'style') && typeof attrs[idx] === 'object') {
+                for (var prop in attrs[idx]){this.style[prop] = attrs[idx][prop];}
+            } else if (idx === 'html') {
+                this.innerHTML = attrs[idx];
+            } else {
+                this.setAttribute(idx, attrs[idx]);
             }
         }
-//==========================================
-    // Element prototype
-        Element.prototype.setAttributes = function (attrs) {
-            for (var idx in attrs) {
-                if ((idx === 'styles' || idx === 'style') && typeof attrs[idx] === 'object') {
-                    for (var prop in attrs[idx]){this.style[prop] = attrs[idx][prop];}
-                } else if (idx === 'html') {
-                    this.innerHTML = attrs[idx];
-                } else {
-                    this.setAttribute(idx, attrs[idx]);
-                }
-            }
-        };
+    };
 //=========================================
     //Error Message
 // window.onerror = function () {
@@ -429,4 +334,9 @@ function clearItem4 () {
 //     alert(message);
 //     return true;
 // };
-
+//======================
+// var links=document.getElementsByTagName('a'), hrefs = [];
+// for (var i = 0; i<links.length; i++)
+// {   
+//     hrefs.push(links[i].href);
+// }
