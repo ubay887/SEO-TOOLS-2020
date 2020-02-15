@@ -136,6 +136,14 @@ function trim () {
                 });
 
             });
+        // select when clicked
+        let trm = trimout.childNodes
+        trm.forEach(function (item, index) {
+            item= item.setAttributes({
+                "id": "trm" + `${index}`,
+                "onClick": "selectAll(this.id)"
+            });
+        });       
 
 }//trim keyword and numbers
 
